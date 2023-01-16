@@ -7,25 +7,51 @@
         <a href="" class="flex h-full items-center text-xl">
           {{ company }}
         </a>
-        <h2 class="ml-8 flex h-full items-center">
-          Developed By: {{ author.firstName }} {{ author.lastName }}
-        </h2>
+        <nav class="ml-12 h-full">
+          <ul class="flex h-full list-none">
+            <li
+              v-for="menuItem in menuItems"
+              :key="menuItem"
+              class="ml-9 h-full first:ml-0"
+            >
+              <a href="" class="flex h-full items-center py-2.5">{{
+                menuItem
+              }}</a>
+            </li>
+          </ul>
+        </nav>
       </div>
+      <SubNav v-if="!isLoggedIn" />
     </div>
   </header>
 </template>
 
 <script>
+import SubNav from "@/components/SubNav.vue";
 export default {
   name: "MainNav",
   data() {
     return {
       company: "Silicon Slopes Careers",
-      author: {
-        firstName: "McLean",
-        lastName: "Carpenter",
-      },
+      url: "https://careers.google.com",
+      menuItems: [
+        "Teams",
+        "Locations",
+        "Life at Silicon Slopes",
+        "How we hire",
+        "Students",
+        "Jobs",
+      ],
+      isLoggedIn: false,
     };
+  },
+  components: {
+    SubNav,
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true;
+    },
   },
 };
 </script>
