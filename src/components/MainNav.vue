@@ -30,23 +30,23 @@
 import SubNav from "@/components/SubNav.vue";
 export default {
   name: "MainNav",
+  components: {
+    SubNav,
+  },
   data() {
     return {
-      company: "Silicon Slopes Careers",
+      company: "Poolitix Careers",
       url: "https://careers.google.com",
       menuItems: [
         "Teams",
         "Locations",
-        "Life at Silicon Slopes",
+        "Life at Poolitix",
         "How we hire",
         "Students",
         "Jobs",
       ],
       isLoggedIn: false,
     };
-  },
-  components: {
-    SubNav,
   },
   methods: {
     loginUser() {
